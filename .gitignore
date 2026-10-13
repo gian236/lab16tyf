@@ -1,0 +1,23 @@
+# Dependencias instaladas
+node_modules/
+
+# Datos locales generados por Hypercore
+data/
+
+# Archivos descargados durante las pruebas
+received/
+
+# Archivos de entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Archivos del sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs temporales: los logs oficiales del laboratorio sí se conservan
+logs/*.tmp
+logs/*.lock

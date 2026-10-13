@@ -1,0 +1,22 @@
+[2026-10-13T07:28:40.363Z] === EXPERIMENTO KILL-SEEDER ===
+[2026-10-13T07:28:40.364Z] fixture=fixtures\p2p-test-file.txt
+[2026-10-13T07:28:40.364Z] total_bytes_fixture=2863
+[2026-10-13T07:28:40.364Z] sha256_original=91aa76d03ccdb5a85a75805a84b8547862ce8206f0956909b30313ab4f709095
+[2026-10-13T07:28:40.396Z] seeder_public_key_short=5b9ce8b03e31…
+[2026-10-13T07:28:40.396Z] seeder_total_blocks=45
+[2026-10-13T07:28:40.396Z] seeder_chunk_size=64 bytes
+[2026-10-13T07:28:50.411Z] seeder_discovery_flush=TIMEOUT err="timeout_seeder_discovery_flush_10000ms"
+[2026-10-13T07:28:50.412Z] seeder_swarm_anunciado
+[2026-10-13T07:28:50.570Z] Esperando conexión local entre peers…
+[2026-10-13T07:28:53.576Z] downloader_expected_blocks=45
+[2026-10-13T07:28:53.577Z] kill_at_block=22 (≈50% de 45)
+[2026-10-13T07:28:53.577Z] otro_seeder=NO – hay un único seeder en este experimento
+[2026-10-13T07:29:01.590Z] ERROR_DOWNLOADER bloque=0 err="timeout_bloque_0"
+[2026-10-13T07:29:01.590Z]   transferencia_completa=NO
+[2026-10-13T07:29:01.590Z]   bloques_recibidos=0/45
+[2026-10-13T07:29:01.590Z]   bytes_recibidos=0
+[2026-10-13T07:29:01.590Z]   archivo_incompleto=SI
+[2026-10-13T07:29:01.590Z]   reanudable=NO (no existe otro seeder)
+[2026-10-13T07:29:01.590Z]   conclusion: La transferencia quedó incompleta al matar el único seeder.
+[2026-10-13T07:29:01.590Z]               Un downloader real debería esperar a que el seeder vuelva
+[2026-10-13T07:29:01.590Z]               o encontrar otro peer con las mismas piezas.

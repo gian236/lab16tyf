@@ -1,0 +1,25 @@
+[2026-10-13T07:10:57.475Z] === PEER INICIADO ===
+[2026-10-13T07:10:57.476Z] carnet_local=20230117
+[2026-10-13T07:10:57.476Z] seed="cs031-s19-20261013"
+[2026-10-13T07:10:57.476Z] topic_hex=5f12612ab966c649334876369cb3709426e018034a02911d4f86bc021775959a
+[2026-10-13T07:10:57.476Z] topic_short=5f12612ab966…
+[2026-10-13T07:10:57.476Z] topic_bytes=32
+[2026-10-13T07:11:01.244Z] JOIN_FLUSHED topic_short=5f12612ab966…
+[2026-10-13T07:11:01.244Z] Esperando peers… (Ctrl+C para salir)
+[2026-10-13T07:23:56.862Z] === PEER INICIADO ===
+[2026-10-13T07:23:56.863Z] carnet_local=20230117
+[2026-10-13T07:23:56.864Z] seed="cs031-s19-20261013"
+[2026-10-13T07:23:56.864Z] topic_hex=5f12612ab966c649334876369cb3709426e018034a02911d4f86bc021775959a
+[2026-10-13T07:23:56.864Z] topic_short=5f12612ab966…
+[2026-10-13T07:23:56.864Z] topic_bytes=32
+[2026-10-13T07:24:01.093Z] JOIN_FLUSHED topic_short=5f12612ab966…
+[2026-10-13T07:24:01.093Z] Esperando peers… (Ctrl+C para salir)
+[2026-10-13T07:24:12.366Z] CONNECTION evento
+[2026-10-13T07:24:12.366Z]   peer_id_remoto_truncado=fee51c017dc1…
+[2026-10-13T07:24:12.367Z]   remote_address=N/A
+[2026-10-13T07:24:12.367Z]   topic_short=5f12612ab966…
+[2026-10-13T07:24:12.367Z]   connected=si
+[2026-10-13T07:24:12.367Z] MSG_SENT payload="ping desde 20230117"
+[2026-10-13T07:24:12.368Z] MSG_RECV peer=fee51c017dc1… addr=N/A payload="ping desde 20230005"
+[2026-10-13T07:26:01.094Z] TIMEOUT 120s sin conexión — posible bloqueo de red, NAT estricto o ningún otro peer activo
+[2026-10-13T07:26:01.094Z]   diagnóstico: verificar firewall, puerto UDP 49737, o correr ambos peers en la misma máquina

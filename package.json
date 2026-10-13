@@ -1,0 +1,20 @@
+{
+  "name": "lab16-p2p-hyperswarm",
+  "version": "1.0.0",
+  "description": "Lab 16 – P2P sin servidor: Hyperswarm + Hypercore (cs031-s19)",
+  "type": "module",
+  "scripts": {
+    "peer-a": "node peer.js --carnet 20230117",
+    "peer-b": "node peer.js --carnet 20230005",
+    "seeder": "node file-transfer.js --role seeder",
+    "downloader": "node file-transfer.js --role downloader --key <HEX_KEY>",
+    "kill-seeder": "node kill-seeder.js",
+    "test": "echo 'No automated tests – ver logs/ para resultados reales' && exit 0"
+  },
+  "dependencies": {
+    "b4a": "^1.6.7",
+    "hypercore": "^11.38.0",
+    "hyperswarm": "^4.17.2"
+  },
+  "license": "ISC"
+}

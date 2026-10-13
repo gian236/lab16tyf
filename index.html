@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 16 · P2P sin servidor</title>
+  <style>
+    :root{--bg:#07111f;--panel:#0d1c2e;--panel2:#10263b;--ink:#edf7ff;--muted:#9db1c4;--cyan:#55e6d0;--blue:#79a7ff;--pink:#ff7eb6;--line:#21405b;--good:#7df0ae}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0,#15365a 0,transparent 34rem),var(--bg);color:var(--ink);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+    a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{padding:82px 0 60px;border-bottom:1px solid var(--line)}.eyebrow{color:var(--cyan);font-weight:800;letter-spacing:.15em;text-transform:uppercase;font-size:.78rem}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:42px;align-items:end}h1{font-size:clamp(3rem,8vw,6.8rem);line-height:.92;letter-spacing:-.08em;margin:18px 0 25px;max-width:780px}h1 span{color:var(--cyan)}.lead{color:var(--muted);font-size:1.15rem;max-width:660px}.hero-card{background:linear-gradient(145deg,#123453,#0b1b2b);border:1px solid #2b5879;border-radius:24px;padding:25px;box-shadow:0 20px 60px #0005}.hero-card strong{display:block;font-size:2.2rem;color:var(--good)}.hero-card small{color:var(--muted)}
+    section{padding:62px 0}.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);margin-bottom:25px}.section-title h2{font-size:2rem;margin:0 0 12px;letter-spacing:-.04em}.section-title p{color:var(--muted);margin:0 0 12px;text-align:right}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:22px}.card h3{margin:0 0 8px;font-size:1.08rem}.card p{color:var(--muted);margin:0}.metric{font-size:2.15rem;font-weight:800;color:var(--cyan);line-height:1.1}.tag{display:inline-block;border:1px solid #39766f;border-radius:999px;padding:3px 10px;color:var(--cyan);font-size:.78rem;margin-bottom:12px}.success{color:var(--good)!important}.pink{color:var(--pink)}
+    .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch}.step{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px 14px}.step:not(:last-child)::after{content:'→';position:absolute;right:-18px;top:35%;color:var(--cyan);font-size:1.5rem;z-index:2}.step b{display:block;color:var(--cyan);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}.step span{color:var(--muted);font-size:.9rem}
+    .evidence{display:grid;grid-template-columns:1fr 1fr;gap:16px}.log{background:#06101a;border:1px solid #1d4056;border-radius:14px;padding:18px;overflow:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;color:#b9d3e5}.log .hi{color:var(--good)}.log .cyan{color:var(--cyan)}
+    .callout{border-left:4px solid var(--pink);background:#21172a;border-radius:0 15px 15px 0;padding:20px 24px;color:#e9d5df}.callout strong{color:var(--pink)}.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}.two h3{margin-top:0}.muted{color:var(--muted)}footer{padding:35px 0 60px;border-top:1px solid var(--line);color:var(--muted)}.links{display:flex;gap:14px;flex-wrap:wrap}.links a{border:1px solid #2b5879;border-radius:999px;padding:8px 14px;background:#0b1b2b}
+    @media(max-width:800px){.hero,.two,.evidence{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.step:not(:last-child)::after{content:'↓';right:48%;top:auto;bottom:-25px}.section-title{display:block}.section-title p{text-align:left}.hero{gap:25px}}
+    @media(max-width:520px){.wrap{width:min(100% - 28px,1120px)}header{padding-top:52px}.grid{grid-template-columns:1fr}h1{font-size:4rem}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow">Lab 16 · Sesión 19 · TechFreedom</div>
+        <h1>P2P<br><span>sin servidor.</span></h1>
+        <p class="lead">Dos peers se descubren por un topic de Hyperswarm, intercambian mensajes directamente y replican un archivo con Hypercore. La disponibilidad depende de la red de usuarios.</p>
+      </div>
+      <div class="hero-card">
+        <div class="eyebrow">Estado del experimento</div>
+        <strong>connected: sí</strong>
+        <small>Ping bidireccional confirmado · 13 octubre 2026</small>
+        <hr style="border:0;border-top:1px solid #2b5879;margin:20px 0">
+        <div class="muted">Topic corto</div>
+        <code>5f12612ab966…</code>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <div class="section-title"><h2>Resultados en números</h2><p>evidencia registrada en logs</p></div>
+      <div class="grid">
+        <article class="card"><span class="tag">DISCOVERY</span><div class="metric">32 bytes</div><p>Topic SHA-256 determinístico compartido por ambos peers.</p></article>
+        <article class="card"><span class="tag">EXCHANGE</span><div class="metric success">2 / 2</div><p>Peers enviaron y recibieron el ping del compañero.</p></article>
+        <article class="card"><span class="tag">HYPERCORE</span><div class="metric">2,863 B</div><p>Archivo transferido con hash SHA-256 coincidente.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><h2>Cómo viaja el dato</h2><p>del topic al intercambio directo</p></div>
+      <div class="flow">
+        <div class="step"><b>01 · Topic</b><span>SHA-256 de <code>cs031-s19-20261013</code></span></div>
+        <div class="step"><b>02 · DHT</b><span>Lookup mediante nodos bootstrap de Hyperswarm</span></div>
+        <div class="step"><b>03 · NAT</b><span>Holepunch o relay según la topología</span></div>
+        <div class="step"><b>04 · Conn</b><span>Conexión cifrada peer-to-peer</span></div>
+        <div class="step"><b>05 · Exchange</b><span>Ping directo y replicación de bloques</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><h2>Kickoff: evidencia real</h2><p>07:24:12 UTC</p></div>
+      <div class="evidence">
+        <div class="log"><span class="cyan">peer 20230117</span><br>CONNECTION evento<br>peer_id_remoto_truncado=fee51c017dc1…<br>remote_address=N/A<br><span class="hi">connected=si</span><br>MSG_SENT: ping desde 20230117<br><span class="hi">MSG_RECV: ping desde 20230005</span></div>
+        <div class="log"><span class="cyan">peer 20230005</span><br>CONNECTION evento<br>peer_id_remoto_truncado=e15c9627095d…<br>remote_address=N/A<br><span class="hi">connected=si</span><br>MSG_SENT: ping desde 20230005<br><span class="hi">MSG_RECV: ping desde 20230117</span></div>
+      </div>
+      <p class="muted" style="margin-top:16px">El runtime reportó <code>remote_address=N/A</code> en ambas conexiones; no se atribuye una IP que no aparece en la evidencia.</p>
+    </section>
+
+    <section>
+      <div class="section-title"><h2>Archivo compartido</h2><p>Hypercore · integridad verificable</p></div>
+      <div class="two">
+        <div class="card"><span class="tag">TRANSFERENCIA OK</span><h3>p2p-test-file.txt</h3><p>12 bloques · 2,863 bytes · seeder encontrado en 1.2 s.</p><p style="margin-top:16px"><strong>SHA-256</strong><br><code>91aa76d03ccdb5a85a75805a84b8547862ce8206f0956909b30313ab4f709095</code></p></div>
+        <div class="card"><span class="tag pink">KILL-SEEDER</span><h3>La disponibilidad no es automática</h3><p>El seeder fue destruido en el bloque 22 de 45. El downloader llevaba 1,408 bytes; no había otro seeder. La conexión produjo <code>ECONNRESET</code> y la transferencia quedó incompleta.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><h2>Liability distribuida</h2><p>qué cambia al quitar el provider</p></div>
+      <div class="two">
+        <div class="card"><h3>Host centralizado</h3><p class="muted">Concentra almacenamiento, disponibilidad, moderación, control operativo y reclamaciones en un proveedor identificable.</p></div>
+        <div class="card"><h3>Red P2P</h3><p class="muted">Traslada ancho de banda, disponibilidad y parte del riesgo a quienes ejecutan el runtime y seedean. El peer puede ver la IP de su contraparte: P2P no promete anonimato.</p></div>
+      </div>
+      <div class="callout" style="margin-top:20px"><strong>Lectura jurídica:</strong> Napster conservaba un índice central; Grokster mostró que la arquitectura no elimina responsabilidad cuando existen promoción e incentivos relevantes; BitTorrent distribuye el intercambio, pero no vuelve lícito automáticamente el uso.</div>
+    </section>
+
+    <section>
+      <div class="section-title"><h2>15-2026</h2><p>conclusión del laboratorio</p></div>
+      <div class="card"><p style="font-size:1.25rem;color:var(--ink)">La responsabilidad debe evaluarse según el rol real de cada actor, su control, conocimiento, incentivos y medidas de mitigación, no sólo según la etiqueta “centralizado” o “P2P”.</p></div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><div class="eyebrow">Lab 16 · Entregable</div><p>Implementado con Pear/Hyperswarm · Hypercore · Node.js</p><div class="links"><a href="P2P.md">P2P.md</a><a href="logs/peer-20230117.log">Log peer 20230117</a><a href="logs/peer-20230005.log">Log peer 20230005</a><a href="logs/file-transfer.log">Log transferencia</a><a href="logs/kill-seeder-success-20261013.log">Log kill-seeder</a></div></div></footer>
+</body>
+</html>

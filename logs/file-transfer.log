@@ -1,0 +1,28 @@
+[2026-10-13T07:26:30.198Z] [seeder] Hypercore seeder listo
+[2026-10-13T07:26:30.199Z] [seeder] public_key=9ea934adaa5ba3d8bd930a0ba93239c49790cda32372e04792775a42910c5312
+[2026-10-13T07:26:30.199Z] [seeder] public_key_short=9ea934adaa5b…
+[2026-10-13T07:26:30.199Z] [seeder] 
+[2026-10-13T07:26:30.199Z] [seeder] === COPIA ESTA LÍNEA PARA EL DOWNLOADER ===
+[2026-10-13T07:26:30.199Z] [seeder] KEY:9ea934adaa5ba3d8bd930a0ba93239c49790cda32372e04792775a42910c5312
+[2026-10-13T07:26:30.199Z] [seeder] ===========================================
+[2026-10-13T07:26:30.199Z] [seeder] 
+[2026-10-13T07:26:30.206Z] [seeder] fixture=fixtures\p2p-test-file.txt
+[2026-10-13T07:26:30.206Z] [seeder] total_bytes=2863
+[2026-10-13T07:26:30.206Z] [seeder] total_blocks=12
+[2026-10-13T07:26:30.206Z] [seeder] sha256_original=91aa76d03ccdb5a85a75805a84b8547862ce8206f0956909b30313ab4f709095
+[2026-10-13T07:26:33.511Z] [seeder] swarm_anunciado key_short=9ea934adaa5b…
+[2026-10-13T07:26:33.512Z] [seeder] Esperando downloader… (Ctrl+C para salir)
+[2026-10-13T07:27:07.058Z] [downloader] Hypercore downloader listo
+[2026-10-13T07:27:07.059Z] [downloader] replicate_key_short=9ea934adaa5b…
+[2026-10-13T07:27:07.066Z] [downloader] Esperando conexión con seeder…
+[2026-10-13T07:27:08.245Z] [downloader] SEEDER_CONECTADO peer=3afc9e946a5b… addr=N/A
+[2026-10-13T07:27:08.249Z] [seeder] DOWNLOADER_CONECTADO peer=658b680cb256… addr=N/A
+[2026-10-13T07:27:11.067Z] [downloader] total_blocks_esperados=12
+[2026-10-13T07:27:11.071Z] [downloader] progreso bloque 0/12
+[2026-10-13T07:27:11.085Z] [downloader] total_bytes_recibidos=2863
+[2026-10-13T07:27:11.085Z] [downloader] total_blocks_recibidos=12
+[2026-10-13T07:27:11.085Z] [downloader] sha256_recibido=91aa76d03ccdb5a85a75805a84b8547862ce8206f0956909b30313ab4f709095
+[2026-10-13T07:27:11.085Z] [downloader] sha256_original=91aa76d03ccdb5a85a75805a84b8547862ce8206f0956909b30313ab4f709095
+[2026-10-13T07:27:11.085Z] [downloader] integridad=OK – hash coincide
+[2026-10-13T07:27:11.085Z] [downloader] archivo_guardado=received\p2p-test-file.txt
+[2026-10-13T07:27:11.086Z] [downloader] REP_ERROR Readable stream closed

@@ -1,0 +1,63 @@
+Lab 16 — Experimento P2P con Hyperswarm y Hypercore
+Archivo de transferencia de prueba (sin PII ni copyright de terceros)
+Generado para cs031-s19, sesión 19, fecha 2026-10-13
+
+== DESCRIPCIÓN ==
+
+Este archivo sirve como datos de prueba para demostrar la replicación
+de un Hypercore append-only entre dos peers identificados por carnet.
+
+Peer seeder   : 20230117
+Peer downloader: 20230005
+
+== CONCEPTOS CLAVE ==
+
+Hyperswarm es una librería de descubrimiento y conexión P2P basada en DHT
+(Distributed Hash Table). Los peers se encuentran usando un topic de 32 bytes
+calculado como SHA-256 de una semilla conocida por ambos lados.
+
+El proceso de conexión sigue estos pasos:
+1. Ambos peers calculan el mismo topic (SHA-256 determinístico).
+2. Cada peer hace join(topic) en el swarm.
+3. El swarm realiza un lookup en la DHT usando los bootstrap nodes públicos.
+4. Si los peers están detrás de NAT, Hyperswarm intenta holepunching.
+5. Se establece la conexión directa y se intercambian datos.
+
+Hypercore es un append-only log firmado criptográficamente.
+El seeder crea el core, lo alimenta con datos y lo anuncia en el swarm.
+El downloader replica el core bloque por bloque.
+
+== DATO TÉCNICO ==
+
+La replicación de Hypercore usa el protocolo SLEEP (Syncable Lightweight
+Event-Emitting Persistence) sobre streams duplex. Cada bloque tiene un hash
+Merkle que permite verificar integridad sin confiar en el seeder.
+
+== RELLENO PARA TAMAÑO ADECUADO ==
+
+La red P2P no garantiza anonimato. Cuando dos peers se conectan directamente,
+cada uno observa la dirección IP del otro. Esto es análogo a BitTorrent,
+donde el tracker o los peers del swarm conocen tu IP pública.
+
+Napster (1999-2001) usaba un índice central: los metadatos y listas de peers
+eran manejados por servidores propios. Esto los hizo vulnerables a litigación
+directa (A&M Records, Inc. v. Napster, Inc., 9th Cir. 2001).
+
+Grokster distribuía software P2P pero promovía activamente el intercambio de
+material con copyright. La Corte Suprema en MGM Studios, Inc. v. Grokster, Ltd.
+(2005) estableció la doctrina del "inducement": quien distribuye una herramienta
+con la intención de facilitar infracción puede ser responsable.
+
+BitTorrent Protocol en sí mismo no tiene índice central. La responsabilidad
+recae en los trackers, los sitios de indexación y los usuarios que seedean
+contenido con copyright. El protocolo es neutral; el comportamiento, no.
+
+En este laboratorio solo existe UN seeder. Si ese seeder se mata, el downloader
+no puede completar la transferencia porque no hay redundancia. En redes reales
+como BitTorrent, múltiples seeders ofrecen las mismas piezas y la descarga
+puede reanudarse con otro peer.
+
+== FIN DEL ARCHIVO ==
+
+Esta es la última línea del archivo de prueba para el Lab 16.
+Hash de verificación: calculado en tiempo de ejecución por file-transfer.js

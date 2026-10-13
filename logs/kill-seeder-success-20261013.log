@@ -1,0 +1,14 @@
+[2026-10-13T07:27:28.681Z] === EXPERIMENTO KILL-SEEDER ===
+[2026-10-13T07:27:28.682Z] total_bytes_fixture=2863
+[2026-10-13T07:27:28.716Z] seeder_total_blocks=45
+[2026-10-13T07:27:28.716Z] seeder_chunk_size=64 bytes
+[2026-10-13T07:27:32.461Z] seeder_discovery_flush=OK
+[2026-10-13T07:27:33.817Z] downloader_connection peer=99af8b0e5a2f… addr=N/A
+[2026-10-13T07:27:33.820Z] seeder_connection peer=a91d6dc496b2…
+[2026-10-13T07:27:35.495Z] downloader_expected_blocks=45
+[2026-10-13T07:27:35.495Z] kill_at_block=22 (≈50% de 45)
+[2026-10-13T07:27:35.495Z] otro_seeder=NO – hay un único seeder en este experimento
+[2026-10-13T07:27:35.837Z] KILL_SEEDER momento=2026-10-13T07:27:35.837Z
+[2026-10-13T07:27:35.837Z] bloques_recibidos_antes_del_kill=22
+[2026-10-13T07:27:35.837Z] bytes_recibidos_antes_del_kill=1408
+[2026-10-13T07:27:35.837Z] resultado=ECONNRESET esperado al destruir el único seeder
